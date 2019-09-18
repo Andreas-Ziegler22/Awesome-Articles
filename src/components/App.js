@@ -1,22 +1,39 @@
-import React from "react";
-import Header from "./Header";
-import ArticleList from "./ArticleList";
-import ToAddForm from "./ToAddForm";
+import React from 'react';
+import Header from './Header';
+import ToAddForm from './ToAddForm';
+import ArticleList from './ArticleList';
 import uuid from 'uuid/v4';
+import Storage from '../modules/Storage';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      toDoItems: {},
+
+    this.storageKey = 'react-todo';
+    const old = Storage.get(this.storageKey);
+
+    if (old) {
+      this.state = JSON.parse(old);
+    } else {
+      this.state = {
+        toDoItems: {},
+      };
+
+      Storage.set(this.storageKey, JSON.stringify(this.state));
     }
   }
+
+  componentDidUpdate() {
+    Storage.set(this.storageKey, JSON.stringify(this.state));
+  }
+
   addToDo = text => {
     const todo = {
       uuid: uuid(),
       text: text,
       done: false,
     };
+
     this.setState(state => {
       state.toDoItems[todo.uuid] = todo;
       return state;
@@ -51,10 +68,12 @@ class App extends React.Component {
       <div className="container">
         <Header tagline="Here are all the next tasks." />
         <ToAddForm addToDo={this.addToDo} />
-        <ArticleList items={this.state.toDoItems}
+        <ArticleList
+          items={this.state.toDoItems}
           updateToDoText={this.updateToDoText}
           toggleToDoDone={this.toggleToDoDone}
-          removeToDo={this.removeToDo} />
+          removeToDo={this.removeToDo}
+        />
       </div>
     );
   }

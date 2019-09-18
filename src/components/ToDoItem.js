@@ -7,7 +7,7 @@ class ToDoItem extends React.Component {
       e.target.blur();
     }
   }
-  rrender() {
+  render() {
     const todo = this.props.data;
 
     return (
