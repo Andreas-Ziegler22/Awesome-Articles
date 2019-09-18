@@ -1,9 +1,9 @@
-import React from "react";
-import Header from "./Header";
+import React from 'react';
+import Header from './Header';
 
 class Help extends React.Component {
   componentDidMount() {
-    document.title = "Help | What to do?";
+    document.title = 'Help | What to do?';
   }
 
   render() {
