@@ -8,10 +8,13 @@ class ToAddForm extends React.Component {
 
   textInput = React.createRef();
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
-    console.log(`Create new item: ${this.textInput.current.value}`);
-  }
+    const text = this.textInput.current.value.trim();
+    this.props.addToDo(text);
+    e.currentTarget.reset();
+  };
+
   render() {
     return (
       <form className="input-group my-3" onSubmit={this.handleSubmit}>
