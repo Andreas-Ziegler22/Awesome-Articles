@@ -1,13 +1,26 @@
 import React from 'react';
 
 class ToAddForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  textInput = React.createRef();
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(`Create new item: ${this.textInput.current.value}`);
+  }
   render() {
     return (
-      <form className="input-group my-3">
+      <form className="input-group my-3" onSubmit={this.handleSubmit}>
         <input
           className="form-control"
+          name="name"
           type="text"
           placeholder="Add a new Article ..."
+          ref={this.textInput}
         />
         <div className="input-group-append">
           <button className="btn btn-outline-secondary" type="submit">
