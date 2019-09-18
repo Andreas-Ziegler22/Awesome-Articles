@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 class Header extends React.Component {
   render() {
     return (
-      <Fragment>
+      <Header className="header">
         <h1>Awesome Articles?</h1>
-        <span className="tagline">This could be Article list.</span>
-      </Fragment>
+        <span className="tagline">{this.props.tagline}</span>
+      </Header>
     );
   }
 };
