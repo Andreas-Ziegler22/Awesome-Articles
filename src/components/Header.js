@@ -4,7 +4,7 @@ class Header extends React.Component {
   render() {
     return (
       <Fragment>
-        <h1>What to do?</h1>
+        <h1>Awesome Articles?</h1>
         <span className="tagline">This could be Article list.</span>
       </Fragment>
     );
