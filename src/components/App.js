@@ -2,11 +2,12 @@ import React from "react";
 import Header from "./Header";
 import ArticleList from "./ArticleList";
 
+
 class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <Header tagline="This could be Articles list." />
+        <Header tagline="Here are all the next tasks." />
         <ArticleList />
       </div>
     );
