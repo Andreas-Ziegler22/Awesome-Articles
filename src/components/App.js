@@ -4,6 +4,12 @@ import ArticleList from "./ArticleList";
 import ToAddForm from "./ToAddForm";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      toDoItems: {},
+    }
+  }
   render() {
     return (
       <div className="container">
