@@ -7,7 +7,7 @@ class ToAddForm extends React.Component {
         <input
           className="form-control"
           type="text"
-          placeholder="Add a new to-do item ..."
+          placeholder="Add a new Article ..."
         />
         <div className="input-group-append">
           <button className="btn btn-outline-secondary" type="submit">
